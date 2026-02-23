@@ -53,9 +53,9 @@
 
 ### 🎥 Project Demonstration
 
-**[▶️ Click here to watch the Project Demonstration Video](https://github.com/ShubhamSharma025/Fall-Detection-System/blob/main/image/device_video.mp4)**
+[![Watch the video](https://img.youtube.com/vi/V4lZiZDVk68/maxresdefault.jpg)](https://youtu.be/V4lZiZDVk68)
 
-*Watch the system in action: from fall detection to alert triggering.*
+*Click the image above to watch the system in action: from fall detection to alert triggering.*
 
 ---
 
