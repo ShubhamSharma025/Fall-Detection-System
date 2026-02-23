@@ -53,7 +53,7 @@
 
 ### 🎥 Project Demonstration
 
-![Watch the video](https://github.com/ShubhamSharma025/Fall-Detection-System/raw/main/image/device_video.mp4)
+**[▶️ Click here to watch the Project Demonstration Video](https://github.com/ShubhamSharma025/Fall-Detection-System/blob/main/image/device_video.mp4)**
 
 *Watch the system in action: from fall detection to alert triggering.*
 
