@@ -51,6 +51,10 @@
 ![Fall Detection Graph](image/simulated_fall_graph.png)
 *Real-time acceleration magnitude showing the peak during an impact event.*
 
+### 🎥 Project Demonstration
+![Device Video](image/device%20video.mp4)
+*Watch the system in action: from fall detection to alert triggering.*
+
 ---
 
 ## 📁 Project Structure
