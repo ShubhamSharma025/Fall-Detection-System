@@ -52,7 +52,9 @@
 *Real-time acceleration magnitude showing the peak during an impact event.*
 
 ### 🎥 Project Demonstration
-![Device Video](image/device%20video.mp4)
+
+<video src="image/device_video.mp4" width="100%" controls></video>
+
 *Watch the system in action: from fall detection to alert triggering.*
 
 ---
