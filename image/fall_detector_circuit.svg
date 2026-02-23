@@ -1,0 +1,158 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#212529">Fall Detection Device Circuit Diagram</text>
+  
+  <!-- ESP32 Module -->
+  <g>
+    <rect x="320" y="200" width="160" height="120" fill="#4a90e2" stroke="#2c5282" stroke-width="2" rx="5"/>
+    <text x="400" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">ESP32</text>
+    <text x="400" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">DevKit v1</text>
+    
+    <!-- ESP32 Pins -->
+    <!-- Left side pins -->
+    <circle cx="320" cy="230" r="3" fill="#ffd700"/>
+    <text x="310" y="235" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#212529">3V3</text>
+    
+    <circle cx="320" cy="250" r="3" fill="#ffd700"/>
+    <text x="310" y="255" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#212529">GND</text>
+    
+    <circle cx="320" cy="270" r="3" fill="#ffd700"/>
+    <text x="310" y="275" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#212529">GPIO21</text>
+    
+    <circle cx="320" cy="290" r="3" fill="#ffd700"/>
+    <text x="310" y="295" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#212529">GPIO22</text>
+    
+    <!-- Right side pins -->
+    <circle cx="480" cy="230" r="3" fill="#ffd700"/>
+    <text x="490" y="235" text-anchor="start" font-family="Arial, sans-serif" font-size="8" fill="#212529">VIN</text>
+    
+    <circle cx="480" cy="250" r="3" fill="#ffd700"/>
+    <text x="490" y="255" text-anchor="start" font-family="Arial, sans-serif" font-size="8" fill="#212529">GND</text>
+    
+    <circle cx="480" cy="270" r="3" fill="#ffd700"/>
+    <text x="490" y="275" text-anchor="start" font-family="Arial, sans-serif" font-size="8" fill="#212529">GPIO2</text>
+  </g>
+  
+  <!-- MPU6050 Module -->
+  <g>
+    <rect x="100" y="160" width="80" height="60" fill="#2ecc71" stroke="#27ae60" stroke-width="2" rx="3"/>
+    <text x="140" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">MPU6050</text>
+    <text x="140" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">6-DOF IMU</text>
+    
+    <!-- MPU6050 Pins -->
+    <circle cx="180" cy="175" r="2" fill="#ffd700"/>
+    <text x="190" y="179" font-family="Arial, sans-serif" font-size="8" fill="#212529">VCC</text>
+    
+    <circle cx="180" cy="190" r="2" fill="#ffd700"/>
+    <text x="190" y="194" font-family="Arial, sans-serif" font-size="8" fill="#212529">GND</text>
+    
+    <circle cx="180" cy="205" r="2" fill="#ffd700"/>
+    <text x="190" y="209" font-family="Arial, sans-serif" font-size="8" fill="#212529">SCL</text>
+    
+    <circle cx="100" cy="205" r="2" fill="#ffd700"/>
+    <text x="90" y="209" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#212529">SDA</text>
+  </g>
+  
+  <!-- Buzzer -->
+  <g>
+    <circle cx="620" cy="190" r="30" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+    <text x="620" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">BUZZER</text>
+    
+    <!-- Buzzer Pins -->
+    <circle cx="620" cy="160" r="2" fill="#ffd700"/>
+    <text x="620" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#212529">+</text>
+    
+    <circle cx="620" cy="220" r="2" fill="#ffd700"/>
+    <text x="620" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#212529">-</text>
+  </g>
+  
+  <!-- Battery Pack -->
+  <g>
+    <rect x="350" y="400" width="100" height="60" fill="#34495e" stroke="#2c3e50" stroke-width="2" rx="5"/>
+    <text x="400" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">BATTERY</text>
+    <text x="400" y="440" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">3.7V Li-Po</text>
+    
+    <!-- Battery terminals -->
+    <circle cx="370" cy="400" r="3" fill="#e74c3c"/>
+    <text x="370" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#212529">+</text>
+    
+    <circle cx="430" cy="400" r="3" fill="#2c3e50"/>
+    <text x="430" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#212529">-</text>
+  </g>
+  
+  <!-- Connection Lines -->
+  <!-- MPU6050 to ESP32 -->
+  <!-- VCC -->
+  <line x1="180" y1="175" x2="280" y2="175" stroke="#e74c3c" stroke-width="2"/>
+  <line x1="280" y1="175" x2="280" y2="230" stroke="#e74c3c" stroke-width="2"/>
+  <line x1="280" y1="230" x2="320" y2="230" stroke="#e74c3c" stroke-width="2"/>
+  
+  <!-- GND -->
+  <line x1="180" y1="190" x2="260" y2="190" stroke="#2c3e50" stroke-width="2"/>
+  <line x1="260" y1="190" x2="260" y2="250" stroke="#2c3e50" stroke-width="2"/>
+  <line x1="260" y1="250" x2="320" y2="250" stroke="#2c3e50" stroke-width="2"/>
+  
+  <!-- SCL (GPIO22) -->
+  <line x1="180" y1="205" x2="220" y2="205" stroke="#f39c12" stroke-width="2"/>
+  <line x1="220" y1="205" x2="220" y2="290" stroke="#f39c12" stroke-width="2"/>
+  <line x1="220" y1="290" x2="320" y2="290" stroke="#f39c12" stroke-width="2"/>
+  
+  <!-- SDA (GPIO21) -->
+  <line x1="100" y1="205" x2="80" y2="205" stroke="#9b59b6" stroke-width="2"/>
+  <line x1="80" y1="205" x2="80" y2="270" stroke="#9b59b6" stroke-width="2"/>
+  <line x1="80" y1="270" x2="320" y2="270" stroke="#9b59b6" stroke-width="2"/>
+  
+  <!-- Buzzer to ESP32 -->
+  <!-- Buzzer + to GPIO2 -->
+  <line x1="620" y1="160" x2="620" y2="140" stroke="#e74c3c" stroke-width="2"/>
+  <line x1="620" y1="140" x2="520" y2="140" stroke="#e74c3c" stroke-width="2"/>
+  <line x1="520" y1="140" x2="520" y2="270" stroke="#e74c3c" stroke-width="2"/>
+  <line x1="520" y1="270" x2="480" y2="270" stroke="#e74c3c" stroke-width="2"/>
+  
+  <!-- Buzzer - to GND -->
+  <line x1="620" y1="220" x2="620" y2="250" stroke="#2c3e50" stroke-width="2"/>
+  <line x1="620" y1="250" x2="480" y2="250" stroke="#2c3e50" stroke-width="2"/>
+  
+  <!-- Battery to ESP32 -->
+  <!-- Battery + to VIN -->
+  <line x1="370" y1="400" x2="370" y2="360" stroke="#e74c3c" stroke-width="3"/>
+  <line x1="370" y1="360" x2="520" y2="360" stroke="#e74c3c" stroke-width="3"/>
+  <line x1="520" y1="360" x2="520" y2="230" stroke="#e74c3c" stroke-width="3"/>
+  <line x1="520" y1="230" x2="480" y2="230" stroke="#e74c3c" stroke-width="3"/>
+  
+  <!-- Battery - to GND -->
+  <line x1="430" y1="400" x2="430" y2="380" stroke="#2c3e50" stroke-width="3"/>
+  <line x1="430" y1="380" x2="480" y2="380" stroke="#2c3e50" stroke-width="3"/>
+  <line x1="480" y1="380" x2="480" y2="250" stroke="#2c3e50" stroke-width="3"/>
+  
+  <!-- Connection Labels -->
+  <text x="250" y="170" font-family="Arial, sans-serif" font-size="8" fill="#e74c3c" font-weight="bold">3.3V</text>
+  <text x="250" y="185" font-family="Arial, sans-serif" font-size="8" fill="#2c3e50" font-weight="bold">GND</text>
+  <text x="150" y="295" font-family="Arial, sans-serif" font-size="8" fill="#f39c12" font-weight="bold">SCL</text>
+  <text x="60" y="250" font-family="Arial, sans-serif" font-size="8" fill="#9b59b6" font-weight="bold">SDA</text>
+  <text x="570" y="135" font-family="Arial, sans-serif" font-size="8" fill="#e74c3c" font-weight="bold">GPIO2</text>
+  <text x="420" y="350" font-family="Arial, sans-serif" font-size="8" fill="#e74c3c" font-weight="bold">VIN (3.7V)</text>
+  
+  <!-- Component List -->
+  <g>
+    <text x="50" y="480" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#212529">Components List:</text>
+    <text x="50" y="500" font-family="Arial, sans-serif" font-size="12" fill="#212529">• ESP32 DevKit v1 (Microcontroller)</text>
+    <text x="50" y="520" font-family="Arial, sans-serif" font-size="12" fill="#212529">• MPU6050 (6-DOF Accelerometer/Gyroscope)</text>
+    <text x="50" y="540" font-family="Arial, sans-serif" font-size="12" fill="#212529">• Active Buzzer (5V compatible)</text>
+    <text x="50" y="560" font-family="Arial, sans-serif" font-size="12" fill="#212529">• 3.7V Li-Po Battery with JST connector</text>
+  </g>
+  
+  <!-- Connection Summary -->
+  <g>
+    <text x="450" y="480" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#212529">Connections:</text>
+    <text x="450" y="500" font-family="Arial, sans-serif" font-size="11" fill="#212529">MPU6050 VCC → ESP32 3V3</text>
+    <text x="450" y="515" font-family="Arial, sans-serif" font-size="11" fill="#212529">MPU6050 GND → ESP32 GND</text>
+    <text x="450" y="530" font-family="Arial, sans-serif" font-size="11" fill="#212529">MPU6050 SDA → ESP32 GPIO21</text>
+    <text x="450" y="545" font-family="Arial, sans-serif" font-size="11" fill="#212529">MPU6050 SCL → ESP32 GPIO22</text>
+    <text x="450" y="560" font-family="Arial, sans-serif" font-size="11" fill="#212529">Buzzer + → ESP32 GPIO2</text>
+    <text x="450" y="575" font-family="Arial, sans-serif" font-size="11" fill="#212529">Buzzer - → ESP32 GND</text>
+  </g>
+</svg>

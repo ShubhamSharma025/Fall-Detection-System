@@ -1,0 +1,97 @@
+#include <Wire.h>
+#include <WiFi.h>
+#include <MPU6050.h>
+#include <math.h>
+
+MPU6050 mpu;
+
+#define BUZZER_PIN 5
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
+
+WiFiServer server(80);
+
+void setup() {
+  Serial.begin(115200);
+  Wire.begin(21, 22);
+  pinMode(BUZZER_PIN, OUTPUT);
+  digitalWrite(BUZZER_PIN, LOW);
+
+  mpu.initialize();
+
+  if (!mpu.testConnection()) {
+    Serial.println("MPU6050 connection failed!");
+    while (1);
+  }
+  Serial.println("MPU6050 Initialized Successfully!");
+
+  // Connect to Wi-Fi
+  WiFi.begin(ssid, password);
+  Serial.print("Connecting to WiFi...");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nConnected to WiFi!");
+  Serial.print("ESP32 IP address: ");
+  Serial.println(WiFi.localIP());
+
+  server.begin();
+}
+
+void loop() {
+  int16_t ax, ay, az;
+  mpu.getAcceleration(&ax, &ay, &az);
+
+  float angleX = atan(ax / sqrt(ay * ay + az * az)) * (180.0 / M_PI);
+  float angleY = atan(ay / sqrt(ax * ax + az * az)) * (180.0 / M_PI);
+
+  // Tilt + Buzzer
+  if (abs(angleX) > 45 || abs(angleY) > 45) {
+    Serial.println("⚠️ Tilt detected! Beeping buzzer...");
+    for (int i = 0; i < 5; i++) {
+      digitalWrite(BUZZER_PIN, HIGH);
+      delay(200);
+      digitalWrite(BUZZER_PIN, LOW);
+      delay(200);
+    }
+  } else {
+    digitalWrite(BUZZER_PIN, LOW);
+  }
+
+  // Handle Web Request
+  WiFiClient client = server.available();
+  if (client) {
+    Serial.println("Client connected");
+
+    String response = "Tilt Angle X: " + String(angleX, 2) +
+                      "\nTilt Angle Y: " + String(angleY, 2) + "\n";
+
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/plain");
+    client.println();
+    client.println(response);
+    client.stop();
+    Serial.println("Data sent to client");
+  }
+
+  delay(500);
+}
+Connection-specific DNS Suffix: 
+Description: Realtek RTL8852BE WiFi 6 802.11ax PCIe Adapter
+Physical Address: ‎B4-8C-9D-E0-16-6C
+DHCP Enabled: Yes
+IPv4 Address: 192.168.174.63
+IPv4 Subnet Mask: 255.255.255.0
+Lease Obtained: 11 June 2025 19:22:11
+Lease Expires: 11 June 2025 20:22:07
+IPv4 Default Gateway: 192.168.174.100
+IPv4 DHCP Server: 192.168.174.100
+IPv4 DNS Server: 192.168.174.100
+IPv4 WINS Server: 
+NetBIOS over Tcpip Enabled: Yes
+IPv6 Address: 2409:40e4:104f:4550:ae8:adde:c2db:9bde
+Temporary IPv6 Address: 2409:40e4:104f:4550:758d:f32d:a573:6d5a
+Link-local IPv6 Address: fe80::8450:b168:d733:2aee%13
+IPv6 Default Gateway: fe80::44f2:88ff:fed6:3d35%13
+IPv6 DNS Server: 

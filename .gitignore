@@ -1,0 +1,17 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+ENV/
+
+# PlatformIO / Arduino artifacts
+.pio/
+.vscode/
+*.bin
+*.elf
+
+# OS artifacts
+.DS_Store
+Thumbs.db
